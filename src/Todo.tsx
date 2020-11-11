@@ -1,10 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 
-type Todo = {
-  id: string;
-  text: string;
-  done: boolean;
-};
 export default function Todo(props:any) {
   const {id, text, done , handleDeleteTodo, handleChangeTaskStatus}= props
   const todo = {
@@ -17,7 +12,7 @@ export default function Todo(props:any) {
     handleChangeTaskStatus(id)
   }
 
-  let display = (todo: Todo) => {
+  let display = () => {
     if (done) {
       return (
         <span
@@ -33,7 +28,7 @@ export default function Todo(props:any) {
   };
   return (
     <div className="mt-2">
-      {display(todo)}
+      {display()}
       <button className="btn btn-danger btn-sm ml-2" onClick={()=>handleDeleteTodo(id)}>X</button>
     </div>
   );
